@@ -10,7 +10,7 @@ const skills = [
 
 const Hero = () => {
     return (
-        <section id='home' className='h-screen relative flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-20 bg-white text-gray-800'>
+        <section id='home' className='min-h-screen relative flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-20 bg-white text-gray-800'>
 
             <div className='max-w-lg text-center md:text-left'>
                 <h2 className='text-4xl  md:text-6xl mb-4'>

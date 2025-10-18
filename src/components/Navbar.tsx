@@ -69,7 +69,7 @@ const Navbar = () => {
                 {menuOpen && (
                     <div ref={menuRef} className={`absolute top-16 bg-white w-full flex flex-col items-center space-y-4 transition-all duration-300 ease-in-out overflow-hidden shadow-md md:hidden ${menuOpen ? "max-h-40 py-4 opacity-100": "max-h-0 py-0 opacity-0"}`}>
                         {items.map((item) => (
-                            <div key={item.link}>
+                            <div key={item.link} className="">
                                 <a href={item.link} onClick={() => setMenuOpen(false)} className="py-2 text-gray-700 hover:text-yellow-700 transition-all">{item.name}</a>
                             </div>
                         ))}
