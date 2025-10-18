@@ -1,7 +1,7 @@
 import hero from '../assets/images/hero.png';
 const About = () => {
     return (
-        <section className="py-20 px-6 md:px-16  text-gray-800 bg-white">
+        <section id='about' className=" min-h-screen py-20 px-6 md:px-16  text-gray-800 bg-white flex justify-center items-center">
 
             <div className='grid grid-cols-1 md:grid-cols-2 gap-12 items-center'>
 
