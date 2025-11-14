@@ -1,4 +1,4 @@
-import { Facebook, Github, Instagram, Linkedin, Slice } from 'lucide-react';
+import { Facebook, Github, Instagram, Linkedin} from 'lucide-react';
 import hero from '../assets/images/hero.png';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -18,7 +18,7 @@ const Hero = () => {
 
     useEffect(() => {
         const current = skills[index].name;
-        let timeout: NodeJS.timeout;
+        let timeout: ReturnType<typeof setTimeout>;
 
         if (typing) {
             if (display.length < current.length) {
@@ -52,33 +52,51 @@ const Hero = () => {
                     <h2 className='text-4xl  md:text-6xl mb-4'>
                         I&apos;m <span className="font-bold text-blue-700">Baraka Saiba</span>
                     </h2>
-                    <p className='mt-4 text-xl h-8'>
-                        Expert in {display}
+                    <p className='mt-4 text-xl h-8 flex items-center justify-center md:justify-start'>
+                        <span className='min-w-[120px] text-left'> Expert in {display}</span>
                         <span className='border-r-2 border-blue-700 animate-pulse ml-1'></span>
                     </p>
-                    <button className=' hidden md:block px-4 py-2 mt-3 bg-yellow-400 text-blue-800 rounded-md overflow-hidden font-semibold shadow-md hover:bg-yellow-300 transition-all'>Get Started</button>
+                    <button className='hidden md:block px-6 py-3 mt-6 bg-yellow-400 text-blue-800 rounded-lg font-semibold shadow-md hover:bg-yellow-300 transition-all duration-300'>
+                        Get Started
+                    </button>
                 </div>
 
                 <div className='flex items-center justify-center mt-10 md:mt-0 order-1 md:order-2 mb-8 md:mb-0'>
                     <div className='w-48 h-48 md:h-72 md:w-72 rounded-full border-4  border-white shadow-2xl overflow-hidden'>
-                        <img src={hero} alt="" className='w-full object-cover h-full rounded-full border shadow-lg' />
+                        <img src={hero} alt="" className='w-full object-cover h-full hover:scale-110 transition-transform duration-500' />
                     </div>
                 </div>
             </div>
 
-            <div className='mt-5'>
-                <div className='flex items-center space-x-2'>
-                    <Link to={"/"} className='p-2 bg-gray-200 rounded-md text-blue-700 hover:bg-gray-300'>
-                        <Facebook className='w-8 h-8' />
+            <div className='mt-8 md:mt-12 order-3'>
+                <div className='flex items-center justify-center md:items-start space-x-3'>
+                    <Link to={"/"}
+                        aria-label="Facebook"
+                        rel="noopener noreferrer"
+                        className='p-3 bg-gray-100 rounded-md text-blue-700 hover:bg-blue-100'>
+                        <Facebook className='w-6 h-6' />
                     </Link>
-                    <Link to={"https://www.linkedin.com/in/baraka-saiba-338b91312/"} className='p-2 bg-gray-200 rounded-md text-blue-700 hover:bg-gray-300'>
-                        <Linkedin className='w-8 h-8' />
+                    <Link
+                        to={"https://www.linkedin.com/in/baraka-saiba-338b91312/"}
+                        aria-label='LinkedIn'
+                        rel="noopener noreferrer"
+                        className='p-3 bg-gray-100 rounded-md text-blue-800 hover:bg-blue-100'>
+                        <Linkedin className='w-6 h-6' />
                     </Link>
-                    <Link to={"https://www.instagram.com/barakamwamakamba/?hl=en"} className='p-2 bg-gray-200 rounded-md text-purple-700 hover:bg-gray-300'>
-                        <Instagram className='w-8 h-8' />
+                    <Link
+                        to={"https://www.instagram.com/barakamwamakamba/?hl=en"}
+                        aria-label='Instagram'
+                        rel="noopener noreferrer"
+                        className='p-3 bg-gray-100 rounded-md text-purple-700 hover:bg-purple-100'>
+                        <Instagram className='w-6 h-6' />
                     </Link>
-                    <Link to={"https://github.com/blessed-barakasaiba"} className='p-2 bg-gray-200 rounded-md text-gray-700 hover:bg-gray-300'>
-                        <Github className='w-8 h-8' />
+                    <Link
+                        to={"https://github.com/blessed-barakasaiba"}
+                        aria-label='GitHub'
+                        target='_blank'
+                        rel="noopener noreferrer"
+                        className='p-3 bg-gray-100 rounded-md text-gray-800 hover:bg-gray-200'>
+                        <Github className='w-6 h-6' />
                     </Link>
 
                 </div>
