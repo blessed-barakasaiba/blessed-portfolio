@@ -1,12 +1,27 @@
-import hero from '../assets/images/hero.png';
 const About = () => {
     return (
-        <section id='about' className=" min-h-screen py-20 px-6 md:px-16  text-gray-800 bg-white flex justify-center items-center">
+        <section id='about' className=" min-h-screen px-6 md:px-16 flex justify-center items-center">
 
             <div className='grid grid-cols-1 md:grid-cols-2 gap-12 items-center'>
 
-                <div>
-                    <img src={hero} alt="" className='w-full mt-10 md:mt-0 rounded-2xl ' />
+                <div className="grid grid-cols-2 gap-6 border border-gray-200 p-6">
+                    <div className="p-2 md:p-6 bg-gray-300 rounded-md">
+                        <h2>Award</h2>
+                        <p>6</p>
+                    </div>
+                    <div>
+                        <h2>Experience</h2>
+                        <p>3+ Years</p>
+                    </div>
+                    <div>
+                        <h2>Award</h2>
+                        <p>6</p>
+                    </div>
+                    <div>
+                        <h2>Experience</h2>
+                        <p>3+ Years</p>
+                    </div>
+                   
                 </div>
 
                 <div className='text-center md:text-left '>

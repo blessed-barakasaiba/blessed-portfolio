@@ -4,7 +4,15 @@
 
 html, body{
     scroll-behavior: smooth;
-    background-color: white;
     margin: 0;
     padding: 0;
+}
+
+@layer base {
+    body {
+        @apply bg-gray-50 text-gray-900 transition-colors duration-300
+    }
+    .dark body {
+        @apply bg-gray-900 text-white transition-colors duration-300
+    }
 }
