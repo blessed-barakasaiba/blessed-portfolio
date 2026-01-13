@@ -1,6 +1,7 @@
 import About from "../components/About"
 import Features from "../components/Features"
 import Hero from "../components/Hero"
+import HistoryBackground from "../components/HistoryBackground"
 import Skills from "../components/Skills"
 
 const HomePage = () => {
@@ -10,6 +11,7 @@ const HomePage = () => {
         <About />
         <Features />
         <Skills />
+        <HistoryBackground />
     </div>
   )
 }
