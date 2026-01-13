@@ -76,8 +76,8 @@ const Hero = () => {
             </button>
 
             <a
-              href="/assets/barakacv.pdf"
-              download
+              href="/pdf/barakacv.pdf"
+              download="barakacv.pdf"
               className="px-6 py-3 rounded-lg font-semibold shadow text-white bg-gradient-to-r from-green-700 to-green-500 hover:from-green-500 hover:to-green-700 transition-all duration-300"
             >
               Download CV
