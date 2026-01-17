@@ -12,7 +12,10 @@ const Hero = () => {
   const [index, setIndex] = useState(0);
   const [display, setDisplay] = useState("");
   const [typing, setTyping] = useState(true);
+  const [isDownloading, setIsDownloading] = useState(false);
+  const [downloadError, setDownloadError] = useState("");
 
+  // Typewriter effect
   useEffect(() => {
     const current = skills[index].name;
     let timeout;
@@ -39,11 +42,84 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, [display, typing, index]);
 
+  // Handle CV download with proper error handling
+  const handleDownloadCV = async () => {
+    try {
+      setIsDownloading(true);
+      setDownloadError("");
+
+      // Method 1: Using fetch with blob (Recommended for hosted PDFs)
+      const response = await fetch("/pdf/barakacv.pdf");
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      // const blob = await response.blob();
+      // const url = window.URL.createObjectURL(blob);
+      // const link = document.createElement("a");
+      // link.href = url;
+      // link.download = "barakasaiba_cv.pdf";
+      // document.body.appendChild(link);
+      // link.click();
+      // document.body.removeChild(link);
+      // window.URL.revokeObjectURL(url);
+
+      // Alternative Method 2: Direct file access (if PDF is in public folder)
+      const link = document.createElement("a");
+      link.href = process.env.PUBLIC_URL + "/pdf/barakacv.pdf";
+      link.download = "barakasaiba_cv.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+    } catch (error) {
+      console.error("Download failed:", error);
+      setDownloadError("Failed to download CV. Please try again or contact me directly.");
+      
+      // Fallback: Open in new tab if download fails
+      window.open("/pdf/barakacv.pdf", "_blank");
+    } finally {
+      setIsDownloading(false);
+    }
+  };
+
+  // Check if PDF exists on component mount
+  useEffect(() => {
+    const checkPDF = async () => {
+      try {
+        const response = await fetch("/pdf/barakacv.pdf", { method: "HEAD" });
+        if (!response.ok) {
+          console.warn("CV PDF not found at /pdf/barakacv.pdf");
+        }
+      } catch (error) {
+        console.error("Error checking PDF:", error);
+      }
+    };
+    checkPDF();
+  }, []);
+
   return (
     <section
       id="home"
       className="min-h-screen flex flex-col justify-center px-4 md:px-16 py-12"
     >
+      {/* Error Message */}
+      {downloadError && (
+        <div className="fixed top-4 right-4 bg-red-50 border-l-4 border-red-500 p-4 rounded shadow-lg z-50 max-w-md">
+          <div className="flex">
+            <div className="flex-shrink-0">
+              <svg className="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <div className="ml-3">
+              <p className="text-sm text-red-700">{downloadError}</p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Top Content */}
       <div className="flex flex-col md:flex-row items-center justify-between gap-12 text-center md:text-left">
         {/* Text Section */}
@@ -75,14 +151,25 @@ const Hero = () => {
               Get Started
             </button>
 
-            <a
-              href="/pdf/barakacv.pdf"
-              download="barakacv.pdf"
-              className="px-6 py-3 rounded-lg font-semibold shadow text-white bg-gradient-to-r from-green-700 to-green-500 hover:from-green-500 hover:to-green-700 transition-all duration-300"
+            <button
+              onClick={handleDownloadCV}
+              disabled={isDownloading}
+              className="px-6 py-3 rounded-lg font-semibold shadow text-white bg-gradient-to-r from-green-700 to-green-500 hover:from-green-500 hover:to-green-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
-              Download CV
-            </a>
+              {isDownloading ? (
+                <>
+                  <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Downloading...
+                </>
+              ) : (
+                "Download CV"
+              )}
+            </button>
           </div>
+
         </div>
 
         {/* Image Section */}

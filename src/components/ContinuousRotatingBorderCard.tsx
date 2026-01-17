@@ -9,7 +9,7 @@ const ContinuousRotatingBorderCard = ({ color = "cyan", skill, description }) =>
   const gradient = colorConfig[color] || colorConfig.cyan;
 
   return (
-    <div className="relative w-80 h-64 rounded-2xl p-[2px] overflow-hidden group">
+    <div className="relative w-full h-64 rounded-2xl p-[2px] overflow-hidden group">
       {/* Rotating Border */}
       <div className="absolute inset-0">
         <div

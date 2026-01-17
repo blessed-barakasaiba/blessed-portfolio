@@ -1,5 +1,7 @@
 import About from "../components/About"
+import Contacts from "../components/Contacts"
 import Features from "../components/Features"
+import Footer from "../components/Footer"
 import Hero from "../components/Hero"
 import HistoryBackground from "../components/HistoryBackground"
 import Skills from "../components/Skills"
@@ -12,6 +14,8 @@ const HomePage = () => {
         <Features />
         <Skills />
         <HistoryBackground />
+        <Contacts />
+        <Footer />
     </div>
   )
 }

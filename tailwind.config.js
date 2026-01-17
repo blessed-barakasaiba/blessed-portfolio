@@ -11,61 +11,61 @@ export default {
     extend: {
       keyframes: {
         electric: {
-          "0%, 100%": { 
+          "0%, 100%": {
             boxShadow: "0 0 20px rgba(0,255,255,0.8)",
             borderColor: "rgba(0,255,255,0.5)"
-          }, 
-          "50%": { 
+          },
+          "50%": {
             boxShadow: "0 0 40px rgba(0,255,255,1), 0 0 60px rgba(0,255,255,0.6)",
             borderColor: "rgba(0,255,255,1)"
           },
         },
         electricPulse: {
-          "0%, 100%": { 
+          "0%, 100%": {
             opacity: "0.7",
             transform: "scale(1)"
           },
-          "50%": { 
+          "50%": {
             opacity: "1",
             transform: "scale(1.02)"
           },
         },
         electricGlow: {
-          "0%, 100%": { 
+          "0%, 100%": {
             filter: "blur(10px)",
             opacity: "0.5"
           },
-          "50%": { 
+          "50%": {
             filter: "blur(15px)",
             opacity: "0.8"
           },
         },
         rotateTop: {
-          "0%": {transform: "translateX(-100%)"},
-          "100%": {transform: "translateX(100%)"},
-        }, 
-        rotateRight: {
-          "0%" : {transform: "translateY(-100%)"},
-          "100%": {transform: "translateY(100%)"}
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
         },
-        rotateLeft : {
-          "0%": {transform: "translateY(100%)"},
-          "100%": {transform: "translateY(-100%)"}
+        rotateRight: {
+          "0%": { transform: "translateY(-100%)" },
+          "100%": { transform: "translateY(100%)" }
+        },
+        rotateLeft: {
+          "0%": { transform: "translateY(100%)" },
+          "100%": { transform: "translateY(-100%)" }
         },
         rotateBottom: {
-          "0%":{transform: "translateX(100%)"},
-          "100%": {transform: "translateX(-100%)"}
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(-100%)" }
         },
-        rotateFull :{
-          "0%": {transform: "rotate(0deg) translateX(-50%) translateY(-50%)"},
-          "100%": {transform:"rotate(360deg) translateX(-50%) translateY(-50%)"},
+        rotateFull: {
+          "0%": { transform: "rotate(0deg) translateX(-50%) translateY(-50%)" },
+          "100%": { transform: "rotate(360deg) translateX(-50%) translateY(-50%)" },
         },
 
-        rotateLine1 : {
-          "0%": {transform: "translateX(-100%)"},
-          "50%": {transform: "translateX(100%)"},
-          "51%": {transform: "translateX(100%) translateY(0)"},
-          "100%": {transform: "translateX(-100%) translateY(0)"}
+        rotateLine1: {
+          "0%": { transform: "translateX(-100%)" },
+          "50%": { transform: "translateX(100%)" },
+          "51%": { transform: "translateX(100%) translateY(0)" },
+          "100%": { transform: "translateX(-100%) translateY(0)" }
 
         },
         rotateLine2: {
@@ -93,16 +93,21 @@ export default {
         electricGlow: "electricGlow 2s infinite ease-in-out",
         rotateTop: "rotateTop 2s linear infinite",
         rotateRight: "rotateRight 2s linear infinite",
-        rotateLeft:"rotateLeft  2s linear infinite",
+        rotateLeft: "rotateLeft  2s linear infinite",
         rotateBottom: "rotateBottom 2s linear infinite",
         rotateFull: "rotateFull 3s linear infinite",
         rotateLine1: "rotateLine1 2s linear infinite ",
         rotateLine2: "rotateLine2 2s linear infinite ",
         rotateLine3: "rotateLine3 2s linear infinite ",
         rotateLine4: "rotateLine4 2s linear infinite ",
+        spinSlow: 'spin 8s linear infinite',
 
-      }
+      },
+      fontFamily: {
+      poppins: ['Poppins', 'sans-serif'],
+    }
     },
+    
   },
   plugins: [],
   safelist: [

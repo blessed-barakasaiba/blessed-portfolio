@@ -12,7 +12,7 @@ const Features = () => {
   ];
 
   return (
-    <div className="py-16 bg-gradient-to-b from-gray-900 to-black" id="features">
+    <div className="py-16" id="features">
       <div className="container mx-auto px-4">
         <h2 className="text-center text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
           Features
@@ -24,7 +24,7 @@ const Features = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
           {features.map((feature) => (
             <div key={feature.id} className="flex justify-center">
-              <ContinuousRotatingBorderCard />
+              <ContinuousRotatingBorderCard skill={feature.title} color={feature.color} description={feature.description} />
             </div>
           ))}
         </div>
